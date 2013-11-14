@@ -11,7 +11,10 @@ public class Worker {
     }
 
     public void run() {
-        while(running) {
+        int counter = 1;
+        while (running) {
+            if (counter++ >= 10)
+                running = false;
             JobData jobData = jobQueue.get();
             transcoder.transcode(jobData.source(), jobData.target());
         }
