@@ -12,9 +12,7 @@ public class WorkerTest {
     public void setup() {
         JobQueue jobqueue = new FileJobQueue();
         Transcoder transcoder = new FfmpegTranscoder();
-        Locator locator = new Locator(jobqueue, transcoder);
-        Locator.init(locator);
-        worker = new Worker();
+        worker = new Worker(jobqueue, transcoder);
     }
 
     @Test
