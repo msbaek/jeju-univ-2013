@@ -2,11 +2,11 @@ package kr.ac.jejunu.transcoder;
 
 public class Worker {
 
-    private boolean running;
+    private boolean running = true;
 
     public void run() {
-        JobQueue jobQueue = null; // JobQueue가 필요하다
-        Transcoder transcoder = null; // Transcoder가 필요하다
+        JobQueue jobQueue = Locator.getInstance().getJobQueue();
+        Transcoder transcoder = Locator.getInstance().getTranscoder();
 
         while(running) {
             JobData jobData = jobQueue.get();

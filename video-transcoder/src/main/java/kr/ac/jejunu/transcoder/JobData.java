@@ -5,10 +5,10 @@ public class JobData {
     }
 
     public String source() {
-        throw new IllegalStateException("kr.ac.jejunu.transcoder.JobData#source not implemented yet");
+        return null;
     }
 
     public String target() {
-        throw new IllegalStateException("kr.ac.jejunu.transcoder.JobData#target not implemented yet");
+        return null;
     }
 }

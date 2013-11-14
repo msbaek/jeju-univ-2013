@@ -6,6 +6,7 @@ public class JobQueue {
     }
 
     public JobData get() {
-        throw new IllegalStateException("kr.ac.jejunu.transcoder.JobQueue#get not implemented yet");
+        System.out.println("JobQueue#get() called");
+        return new JobData("", "");
     }
 }
