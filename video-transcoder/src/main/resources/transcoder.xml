@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="jobQueue" class="kr.ac.jejunu.filejobqueu.FileJobQueue"/>
+    <bean id="transcoder" class="kr.ac.jejunu.ffmpegetranscoder.FfmpegTranscoder"/>
+    <bean id="worker" class="kr.ac.jejunu.transcoder.Worker">
+        <constructor-arg ref="jobQueue"/>
+        <constructor-arg ref="transcoder"/>
+    </bean>
+</beans>

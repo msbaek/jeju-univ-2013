@@ -1,19 +1,17 @@
 package kr.ac.jejunu.transcoder;
 
-import kr.ac.jejunu.ffmpegetranscoder.FfmpegTranscoder;
-import kr.ac.jejunu.filejobqueu.FileJobQueue;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:transcoder.xml")
 public class WorkerTest {
+    @Resource(name = "worker")
     private Worker worker;
-
-    @Before
-    public void setup() {
-        JobQueue jobqueue = new FileJobQueue();
-        Transcoder transcoder = new FfmpegTranscoder();
-        worker = new Worker(jobqueue, transcoder);
-    }
 
     @Test
     public void should_get_from_jobqueue_and_transcode() {
